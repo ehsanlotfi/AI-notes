@@ -15,7 +15,8 @@
 - `Tool Orchestration`: Coordinating external tools and APIs.
 - `Multi-Agent Coordination`: Collaboration between multiple AI agents.
 
-# Behavioral Control — Controlling model actions and response style.
+# Behavioral Control
+ Controlling model actions and response style.
 
 ## Key Concepts
 - `Behavioral Control`: Managing model behavior through prompts.
