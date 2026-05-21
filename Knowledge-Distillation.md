@@ -4,7 +4,7 @@
 Knowledge Distillation is a model compression technique where a large model (Teacher) transfers knowledge to a smaller model (Student).  
 Goal: reduce size, improve speed, and maintain accuracy.
 
----
+
 
 ## Motivation
 - Large models are accurate but slow and expensive
@@ -14,7 +14,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
   - Energy efficiency
 - Distillation solves this by compressing knowledge instead of only shrinking parameters
 
----
+
 
 ## Core Idea (Teacher–Student)
 - **Teacher model**: large, pre-trained, high accuracy
@@ -23,7 +23,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
   - Ground truth labels
   - Teacher output distribution
 
----
+
 
 ## Basic Distillation Process
 1. Train Teacher model
@@ -32,7 +32,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
    - Hard labels (true labels)
    - Soft labels (Teacher outputs)
 
----
+
 
 ## Loss Function
 
@@ -41,7 +41,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - `L_soft`: Difference between Teacher and Student outputs
 - `α`: balance factor
 
----
+
 
 ## Softmax with Temperature
 
@@ -49,7 +49,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Higher T → smoother probabilities
 - Reveals hidden class relationships
 
----
+
 
 ## Key Concepts
 
@@ -65,7 +65,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Hidden information in soft probabilities
 - Shows relationships between classes
 
----
+
 
 ## Types of Knowledge Distillation
 
@@ -76,7 +76,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - **Online distillation**: models trained simultaneously
 - **Offline distillation**: Teacher trained first
 
----
+
 
 ## Model Families Using Distillation
 
@@ -84,7 +84,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Transformers (BERT-based models)
 - LLMs (large language models)
 
----
+
 
 ## Popular Distilled Models
 
@@ -93,7 +93,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - MobileBERT
 - MiniLM
 
----
+
 
 ## Applications
 
@@ -103,7 +103,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Recommendation systems
 - Real-time NLP and vision systems
 
----
+
 
 ## Advantages
 
@@ -113,7 +113,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Reduced energy consumption
 - Lower deployment cost
 
----
+
 
 ## Limitations
 
@@ -123,7 +123,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Sensitive hyperparameters (T, α, learning rate)
 - Student architecture design complexity
 
----
+
 
 ## Comparison with Other Methods
 
@@ -139,7 +139,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 ### LoRA / Fine-tuning
 - Parameter-efficient adaptation (not compression-focused)
 
----
+
 
 ## Evaluation Metrics
 
@@ -151,14 +151,14 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Inference speed
 - Memory usage
 
----
+
 
 ## Trade-off
 - Smaller model → faster speed
 - May slightly reduce accuracy
 - Goal: balance performance vs efficiency
 
----
+
 
 ## Use in Industry
 
@@ -166,7 +166,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Google: BERT and mobile models
 - Meta: vision + NLP compression systems
 
----
+
 
 ## Future Directions
 
@@ -176,13 +176,13 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - Vision Transformer compression
 - Tiny language models for edge devices
 
----
+
 
 ## Conclusion
 Knowledge Distillation is a key technique for building efficient AI systems.  
 It enables deployment of large-scale models on limited hardware while preserving most performance.
 
----
+
 
 ## Papers
 - [Neural Network Ensembles](https://www.researchgate.net/publication/3191841_Neural_Network_Ensembles), L.K. Hansen, P. Salamon, 1990
