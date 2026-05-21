@@ -47,6 +47,7 @@ Collection of specialized AI models.
 - `Qwen 3.6-VL`: Document and table understanding model.
 - `Llama 4.5-Vision`: Industrial image analysis model.
 
+
 # AI Benchmarks — Standard evaluation metrics for LLMs.
 
 ## General Benchmarks
