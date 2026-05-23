@@ -113,7 +113,7 @@ This is the one-time process of preparing your data for RAG.
 
 
 
-## Dense Retrieval vs Sparse Retrieval
+## Dense Retrieval ( Semantic-based ) vs Sparse Retrieval ( Keyword-based )
 
 | Feature | Dense Retrieval (Vector Search) | Sparse Retrieval (Keyword Search) |
 |---|---|---|
