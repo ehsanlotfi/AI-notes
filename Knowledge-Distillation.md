@@ -21,7 +21,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 
 
 
-## 🧠 Core Idea (Teacher–Student Framework)
+##  Core Idea (Teacher–Student Framework)
 1. **Teacher Model**: Large, pre-trained, high-accuracy (e.g., Llama-3.1-405B, GPT-4o, ViT-Huge).
 2. **Student Model**: Small, efficient architecture (e.g., Llama-3.2-1B, MobileViT, TinyBERT).
 3. **Knowledge Transfer**: Student learns from:
@@ -31,7 +31,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
    - **Reasoning Trajectories** (CoT steps, tool-use traces).
 
 
-## 🔄 Basic Distillation Process
+##  Basic Distillation Process
 1. **Train/Obtain Teacher**: Use a pre-trained high-capacity model.
 2. **Generate Soft Targets**: Run data through Teacher with **temperature scaling** (`T > 1`) to get softened probabilities.
 3. **Train Student**: Minimize a **combined loss**:
@@ -40,7 +40,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 4. **(Optional) Feature Distillation**: Align intermediate representations via MSE, cosine similarity, or attention transfer.
 
 
-## 📉 Loss Function
+##  Loss Function
 ### Standard Form:
 - `L_hard`: Cross-entropy with true labels
 - `L_soft`: Difference between Teacher and Student outputs
@@ -52,7 +52,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - **Orthogonal Projection (VkD)**: Projects student features to a subspace orthogonal to teacher's redundant directions ([Miles et al., CVPR 2024](https://openaccess.thecvf.com/content/CVPR2024/papers/Miles_VkD_Improving_Knowledge_Distillation_using_Orthogonal_Projections_CVPR_2024_paper.pdf)).
 
 
-## 🔥 Softmax with Temperature
+##  Softmax with Temperature
 - **Purpose**: Smooth the probability distribution to reveal **"dark knowledge"** (inter-class similarities).
 - **Effect**: Higher `T` → softer distribution → more information about **relative class confidences**.
 - **Example**: For an image clearly a "dog" but with "wolf-like" features, Teacher with `T=5` might assign:  
@@ -60,7 +60,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
   vs. Student with `T=1`: `Dog: 1.0, others: 0.0`.
 
 
-## 🧩 Key Concepts (Evolved Definitions)
+##  Key Concepts (Evolved Definitions)
 
 ### Hard Label
 - One-hot labels
@@ -111,7 +111,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 | **Diffusion** | Stable Diffusion XL, Imagen | **SDXL-Turbo**, **LCM-LoRA**, **ARD** (Autoregressive Distillation) | [Progressive Distillation](https://arxiv.org/abs/2202.00512) (2022), [ARD](https://arxiv.org/abs/2504.11295) (2025) |
 
 
-## 📦 Popular Distilled Models (2025–2026)
+##  Popular Distilled Models (2025–2026)
 
 | Model | Size | Teacher | Distillation Type | Notes |
 |-------|------|---------|-------------------|-------|
@@ -123,7 +123,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 | **TinyBERT-6L** | 14.5M | BERT-base | Layer-wise KD | 7.5× smaller, 9× faster. |
 
 
-## 🎯 Applications
+##  Applications
 
 - **Mobile AI**: On-device translation, assistants (e.g., Samsung Bixby, Google Assistant).
 - **Edge Computing**: IoT sensors, drones, robots (e.g., NVIDIA Jetson, Raspberry Pi).
@@ -132,7 +132,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 - **Real-Time NLP**: Chatbots, code completion, search engines.
 - **Diffusion Models**: Real-time image/video generation on consumer GPUs.
 
-## ✅ Advantages
+##  Advantages
 
 1. **Size Reduction**: 2–10× fewer parameters.
 2. **Speedup**: 2–15× faster inference (measured in **tokens/sec** or **FPS**).
@@ -141,7 +141,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 5. **Cost Reduction**: Cheaper cloud inference (e.g., 70% lower AWS/GCP costs).
 6. **Accuracy Retention**: Often within **1–2%** of Teacher on benchmark datasets.
 
-## ⚠️ Limitations & Challenges (2026 Focus)
+##  Limitations & Challenges (2026 Focus)
 
 1. **Capacity Gap**: Student may lack capacity to mimic Teacher's complex logic → **"dark knowledge" loss**.
 2. **Safety Alignment Erosion**: KD can **bypass safety training** if not explicitly aligned ([2026 Safety Paper](https://openreview.net/pdf/fed763a30898a94daf0c79a480b698875f2cf105.pdf)).
@@ -150,9 +150,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 5. **Compute Cost**: Teacher inference + Student training still **expensive** (though less than pre-training from scratch).
 6. **Data-Free Distillation**: Synthetic data quality limits Student performance.
 
-
-
-## 🔄 Comparison with Other Compression Techniques
+##  Comparison with Other Compression Techniques
 
 | Technique | Mechanism | Compression Ratio | Speedup | Accuracy Drop | Combo with KD? |
 |-----------|-----------|-------------------|---------|---------------|----------------|
@@ -164,9 +162,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 
 **Best Practice (2026)**: **KD → Pruning → Quantization** pipeline for maximum compression.
 
----
-
-## 📊 Evaluation Metrics
+##  Evaluation Metrics
 
 | Metric | Description | Target for Distilled Models |
 |--------|-------------|----------------------------|
@@ -179,7 +175,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 | **Safety Score** | (2026) Alignment, refusal rate, bias metrics | **Preserved** (not degraded) |
 
 
-## 🏭 Industry Use Cases
+##  Industry Use Cases
 
 - **OpenAI**: Distills GPT-4 → **GPT-4o Mini** (rumored).
 - **Google**: Distills PaLM 2 → **PaLM 2-Gecko** (on-device).
@@ -189,9 +185,7 @@ Preserving **ethical guardrails, refusal capabilities, and bias mitigations** du
 - **Apple**: On-device distilled models for Siri, image recognition.
 - **Tesla**: Distilled vision models for FSD computer.
 
----
-
-## 🔮 Future Directions (2026+)
+##  Future Directions (2026+)
 
 1. **Reasoning Distillation at Scale**: Distilling **multi-step reasoning** from o1-class models to <10B parameter models.
 2. **Cross-Modal Distillation**: Using **LLM reasoning** to guide vision model training (e.g., "Why" behind image classification).
