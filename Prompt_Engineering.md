@@ -8,7 +8,6 @@
 - `Context Management`: Handling long contextual information.
 - `Reliability`: Stability and trustworthiness of outputs.
 
-
 ## Modern AI Components
 - `RAG`: Retrieval-Augmented Generation using external knowledge.
 - `Memory Systems`: Long-term context and conversation memory.
