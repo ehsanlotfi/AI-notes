@@ -47,16 +47,7 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - **Logit Standardization**: Normalizes logits across classes to improve stability ([Sun et al., CVPR 2024](https://openaccess.thecvf.com/content/CVPR2024/html/Sun_Logit_Standardization_in_Knowledge_Distillation_CVPR_2024_paper.html)).
 - **Orthogonal Projection (VkD)**: Projects student features to a subspace orthogonal to teacher's redundant directions ([Miles et al., CVPR 2024](https://openaccess.thecvf.com/content/CVPR2024/papers/Miles_VkD_Improving_Knowledge_Distillation_using_Orthogonal_Projections_CVPR_2024_paper.pdf)).
 
-
-##  Softmax with Temperature
-- **Purpose**: Smooth the probability distribution to reveal **"dark knowledge"** (inter-class similarities).
-- **Effect**: Higher `T` → softer distribution → more information about **relative class confidences**.
-- **Example**: For an image clearly a "dog" but with "wolf-like" features, Teacher with `T=5` might assign:  
-  `Dog: 0.7, Wolf: 0.2, Cat: 0.05, Car: 0.05`  
-  vs. Student with `T=1`: `Dog: 1.0, others: 0.0`.
-
-
-##  Key Concepts (Evolved Definitions)
+## Concepts
 
 ### Hard Label
 - One-hot labels
@@ -73,11 +64,10 @@ Goal: reduce size, improve speed, and maintain accuracy.
 ### **Reasoning Distillation (2025+)**
 Transfer of **cognitive processes** (e.g., CoT, tool-use, self-reflection) from large reasoning models (LRMs) like **DeepSeek-R1**, **o1-preview**.  
 - **How**: Teacher generates **intermediate reasoning steps**; Student learns to mimic the **trajectory**, not just the final answer.
-- **Challenge**: Requires **high-quality synthetic reasoning data**; prone to **hallucination propagation**.
 
 ### **Safety-Aligned Distillation**
-Preserving **ethical guardrails, refusal capabilities, and bias mitigations** during transfer.  
-⚠️ **2026 Finding**: ["To Distill or Not to Distill"](https://openreview.net/pdf/fed763a30898a94daf0c79a480b698875f2cf105.pdf) shows KD can **undermine safety** if Teacher's safety signals are not explicitly distilled.
+Preserving **ethical guardrails and bias mitigations** during transfer.  
+**2026 Finding**: ["To Distill or Not to Distill"](https://openreview.net/pdf/fed763a30898a94daf0c79a480b698875f2cf105.pdf) shows KD can **undermine safety** if Teacher's safety signals are not explicitly distilled.
 
 ### **On-Policy vs. Off-Policy**
 - **Off-Policy** (Classic): Teacher fixed; Student learns from Teacher's *static* outputs.
