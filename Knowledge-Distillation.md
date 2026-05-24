@@ -17,19 +17,15 @@ Goal: reduce size, improve speed, and maintain accuracy.
   - Low latency
   - Low memory usage
   - Energy efficiency
-- Distillation solves this by compressing knowledge instead of only shrinking parameters
-
-
 
 ##  Core Idea (Teacher–Student Framework)
-1. **Teacher Model**: Large, pre-trained, high-accuracy (e.g., Llama-3.1-405B, GPT-4o, ViT-Huge).
+1. **Teacher Model**: Large, pre-trained, high-accuracy (e.g., Llama-3.1, GPT-4o).
 2. **Student Model**: Small, efficient architecture (e.g., Llama-3.2-1B, MobileViT, TinyBERT).
 3. **Knowledge Transfer**: Student learns from:
-   - **Hard Labels** (ground truth).
-   - **Soft Labels** (Teacher's output distribution).
+   - **Hard Labels** (The exact correct answers in the training data. e.g. Cat = 1, Dog = 0).
+   - **Soft Labels** (Teacher's output distribution. e.g. Cat = 0.82, Dog = 0.14).
    - **Intermediate Features** (hidden states, attention maps).
    - **Reasoning Trajectories** (CoT steps, tool-use traces).
-
 
 ##  Basic Distillation Process
 1. **Train/Obtain Teacher**: Use a pre-trained high-capacity model.
