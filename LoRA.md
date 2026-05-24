@@ -81,6 +81,7 @@ Methods for training LoRA-style adapters.
 # Model Evaluation Metrics
 Measuring reasoning and behavior quality.
 
+
 ## Metrics
 - `Reasoning Consistency`: Logical stability during reasoning.
 - `Executive Communication`: Clear and structured reporting.
