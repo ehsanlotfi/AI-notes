@@ -47,20 +47,6 @@ Goal: reduce size, improve speed, and maintain accuracy.
 - **Logit Standardization**: Normalizes logits across classes to improve stability ([Sun et al., CVPR 2024](https://openaccess.thecvf.com/content/CVPR2024/html/Sun_Logit_Standardization_in_Knowledge_Distillation_CVPR_2024_paper.html)).
 - **Orthogonal Projection (VkD)**: Projects student features to a subspace orthogonal to teacher's redundant directions ([Miles et al., CVPR 2024](https://openaccess.thecvf.com/content/CVPR2024/papers/Miles_VkD_Improving_Knowledge_Distillation_using_Orthogonal_Projections_CVPR_2024_paper.pdf)).
 
-## Concepts
-
-### Hard Label
-- One-hot labels
-- Only correct class is 1
-
-### Soft Label
-- Probability distribution from Teacher
-- Contains similarity information between classes
-
-### Dark Knowledge
-- Hidden information in soft probabilities
-- Shows relationships between classes
-
 ### **Reasoning Distillation (2025+)**
 Transfer of **cognitive processes** (e.g., CoT, tool-use, self-reflection) from large reasoning models (LRMs) like **DeepSeek-R1**, **o1-preview**.  
 - **How**: Teacher generates **intermediate reasoning steps**; Student learns to mimic the **trajectory**, not just the final answer.
@@ -73,7 +59,7 @@ Preserving **ethical guardrails and bias mitigations** during transfer.
 - **Off-Policy** (Classic): Teacher fixed; Student learns from Teacher's *static* outputs.
 - **On-Policy** (2026): Student **generates its own samples** (e.g., via sampling), Teacher **corrects** them. More sample-efficient but unstable.
 
-## 🗂 Types of Knowledge Distillation (2026 Taxonomy)
+##  Types of Knowledge Distillation (2026 Taxonomy)
 
 | Category | Subtype | Description | Key Papers (2024–2026) |
 |----------|---------|-------------|------------------------|
