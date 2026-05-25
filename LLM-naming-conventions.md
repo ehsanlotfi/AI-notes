@@ -8,6 +8,8 @@ Active Params (MoE) ( A2B /  A3B / A6B / 8x7B / 16x3B)
 
 Context Length ( 4K / 8K / 128K )
 
+Floating Point Precision ( FP32 / FP16 / BF16 )
+
 Quantization ( Q4 / Q5 / Q8 )
 
 Instruction Tuning ( Instruct / Chat / Base / SFT / RLHF / DPO / IT / Dialogue / Assistant / Reasoning / Reasoner)
