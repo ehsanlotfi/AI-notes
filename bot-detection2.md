@@ -40,8 +40,10 @@
         - Weighted Sampling
         - Importance Sampling
         - Layer-wise Sampling
-    - **DropEdge**
-      - هنگام آموزش، بعضی ارتباط‌ها را موقت حذف می‌کند. مدل مجبور می‌شود فقط به چند ارتباط خاص وابسته نباشد. در نتیجه مدل بهتر روی داده‌های جدید عمل می‌کند و بیش‌برازش کاهش می‌یابد.
+
+    - **PinSAGE**
+      - نسخه‌ای توسعه‌یافته از GraphSAGE است که توسط Pinterest برای سیستم‌های توصیه‌گر طراحی شده و برای انتخاب همسایه‌های مهم از Random Walk استفاده می‌کند.
+      - 
     
     - **SATAR ( Self-supervised Approach to Twitter Account Representation Learning )** 
       - فرض کنید یک حساب توییتر داریم که **متن توییت‌هایش طبیعی است، اما بیشتر با حساب‌های ربات در ارتباط است و الگوی پروفایلش نیز مشکوک است**. **SATAR** این سه نوع اطلاعات (**متن، ویژگی‌های پروفایل و ارتباط‌های شبکه**) را هم‌زمان بررسی می‌کند و با استفاده از **Attention** یاد می‌گیرد کدام‌یک برای این حساب مهم‌تر است؛ مثلاً ممکن است نتیجه بگیرد که در این مثال، **ارتباط‌های شبکه از متن مهم‌تر هستند**، بنابراین وزن بیشتری به آن‌ها بدهد و در نهایت با ترکیب این اطلاعات تصمیم بگیرد که احتمال ربات بودن حساب زیاد است. هدف اصلی SATAR این است که به‌جای تکیه بر یک ویژگی، از چندین نوع اطلاعات به‌صورت هوشمند برای ساخت یک نمایش دقیق از هر حساب استفاده کند.
@@ -82,3 +84,16 @@
 
   - **Cross-Attention:**
       -  مدل ارتباط بین دو مجموعه متفاوت را یاد می‌گیرد؛ مثلاً ویژگی‌های  کامیونتی به متن توییت توجه می‌کنند تا مشخص شود آیا محتوای حساب با رفتار گروهی آن سازگار است یا خیر.
+
+
+|  | Transductive | Inductive |
+|---------|--------------|------------|
+| Test nodes seen during training | ✅  | ❌  |
+| Test node labels available | ❌  | ❌  |
+| Test graph structure available during training | ✅  | ❌  |
+| Can predict new nodes | ❌  | ✅  |
+| Retraining needed for new nodes | ✅  | ❌  |
+| Best for | Static graphs | Dynamic graphs |
+| Example | Classifying users in a fixed social network | Detecting bots for newly created users |
+| Main advantage | Uses the entire graph for higher accuracy | Can generalize to new nodes and new graphs |
+| GNN models | GCN, RGCN, GAT | GraphSAGE, PinSAGE |
