@@ -47,6 +47,9 @@
     - SHAP
   - **Graph Explainability**
     - PGExplainer
+  - **Counterfactual**
+    - DiCE
+    - CF-GNNExplainer (For Graph)
   - **Natural Language Explanation**
     - make report for user
 
