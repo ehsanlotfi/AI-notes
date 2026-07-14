@@ -44,3 +44,8 @@
 
 ### Step 5: ✅Explainable AI (XAI)
   - **Feature-level Explainability**
+    - SHAP
+  - **Graph Explainability**
+    - PGExplainer
+  - **Natural Language Explanation**
+    - make report for user
