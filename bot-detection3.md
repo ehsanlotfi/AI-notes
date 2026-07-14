@@ -52,11 +52,8 @@
 
 
 
-###  BotCF: Improving Social Bot Detection by Focusing on Community Features
-
-Key information, links, and references for the **BotCF** paper.
-
-#### ℹ General Information
+###  BotCF 
+#### General Information
 * **Journal:** [IEEE Transactions on Network and Service Management](https://ieeexplore.ieee.org/document/11129974)
 * **Impact Factor:** `5.7`
 * **Publication Date:** December 2025
