@@ -42,15 +42,45 @@
 ### step 4: Classification
   - **Softmax** -> Human / Bot
 
+### Step 5: ✅Explainable AI (XAI)
+  - **Feature-level Explainability**
+    - SHAP
+  - **Graph Explainability**
+    - PGExplainer
+  - **Natural Language Explanation**
+    - make report for user
 
 
 
-# BotCF
-  - Reference:  [BotRGCN](https://doi.org/10.1145/3487351.3488336)- [source](https://github.com/BunsenFeng/BotRGCN) 
-  - IEEE Transactions on Network and Service Management (5.7) December 2025
-  - Citations (EEE (1) | Other Publishers (2))
-  - [Journal Link](https://ieeexplore.ieee.org/document/11129974)
-  - [source code](https://github.com/FengLiuii/BotCF)
-  - [Author link](https://ieeexplore.ieee.org/author/400935237016586)
-  - [Twibot20](https://www.kaggle.com/datasets/marvinvanbo/twibot-20), Twibot22, and Cresci-2015
-  - 1.86%, 1.67%, 0.47%   => 86.53%, 81.33%, and 98.21%
+###  BotCF: Improving Social Bot Detection by Focusing on Community Features
+
+Key information, links, and references for the **BotCF** paper.
+
+#### ℹ General Information
+* **Journal:** [IEEE Transactions on Network and Service Management](https://ieeexplore.ieee.org/document/11129974)
+* **Impact Factor:** `5.7`
+* **Publication Date:** December 2025
+* **Citations:** 3 total (1 in IEEE | 2 by other publishers)
+
+
+####  References & Links
+* **Source Code:** [FengLiuii/BotCF (GitHub)](https://github.com/FengLiuii/BotCF)
+* **Author Profile:** [IEEE Author Link](https://ieeexplore.ieee.org/author/400935237016586)
+* **Baseline/Base Paper (BotRGCN):**
+  * [BotRGCN Paper Link](https://doi.org/10.1145/3487351.3488336)
+  * [BotRGCN Source Code](https://github.com/BunsenFeng/BotRGCN)
+
+
+####  Datasets
+* [TwiBot-20](https://www.kaggle.com/datasets/marvinvanbo/twibot-20)
+* [TwiBot-22](https://botometer.osome.iu.edu/data/datasets/twibot-22/twibot-22.csv.gz)
+* [Cresci-2015](https://botometer.osome.iu.edu/data/datasets/cresci-2015/cresci-2015.csv.tar.gz)
+
+
+####  Performance Improvement
+| Dataset | Improvement | Final Accuracy |
+| :--- | :---: | :---: |
+| **TwiBot-20** | `+1.86%` | **86.53%** |
+| **TwiBot-22** | `+1.67%` | **81.33%** |
+| **Cresci-2015** | `+0.47%` | **98.21%** |
+
