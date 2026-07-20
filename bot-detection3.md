@@ -78,9 +78,15 @@
 
 
 ####  Performance Improvement
-| Dataset | Improvement | Final Accuracy |
-| :--- | :---: | :---: |
-| **TwiBot-20** | `+1.86%` | **86.53%** |
-| **TwiBot-22** | `+1.67%` | **81.33%** |
-| **Cresci-2015** | `+0.47%` | **98.21%** |
+| Dataset | Improvement | Final Accuracy | labels |
+| :--- | :---: | :---: | :---: |
+| **TwiBot-20** | `+1.86%` | **86.53%** | 0: 3632, 1: 4646 |
+| **TwiBot-22** | `+1.67%` | **81.33%** | |
+| **Cresci-2015** | `+0.47%` | **98.21%** | |
 
+
+####  Parameters
+ - Epoch count: 150
+ - Embedding size = 160
+ - Features Count = numerrical 7D, categorical 11D
+ 
