@@ -52,10 +52,6 @@
 - **Community Feature ( DANMF )** 
   - Generate graph with `neighbor.following` and `neighbor.following`
   - 128-dim Community Vector [0.8,0.1,0.05,0.05]
-      - why 128-dim
-         - Standard in Graph Embedding: The number 128 is the "sweet spot" in graph learning, preserving community structure complexity while preventing memory overflow or overfitting.
-         - DANMF Inner Mechanism (Latent Communities): In the DANMF algorithm, 128 represents the number of latent communities in the network, defining the degree of each user's belonging to               these clusters.
-         - Alignment with Attention Architecture: This 128-dimensional vector serves as a sufficient input for the linear layer to extract the best features, ultimately providing the                       structural features needed to build the model's final 160-dimensional vector.
         
 -  `✅ Anti-Mimic Feature ( Z-score normalization and MLP )`
    -  Semantic Mimicry Features
@@ -108,11 +104,13 @@
   * [BotRGCN Source Code](https://github.com/BunsenFeng/BotRGCN)
 
 ####  Datasets
-| Dataset | Improvement | Final Accuracy | Count | bot | Human | Edge |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| [TwiBot-20](https://www.kaggle.com/datasets/marvinvanbo/twibot-20) | `+1.86%` | **86.53%** | 8,178 `229,573` | 3632 `5273` | 4646 `6589` | following |
-| [TwiBot-22](https://botometer.osome.iu.edu/data/datasets/twibot-22/twibot-22.csv.gz) | `+1.67%` | **81.33%** | 1m | 139,943 | 860,057 | following |
-| [Cresci-2015](https://botometer.osome.iu.edu/data/datasets/cresci-2015/cresci-2015.csv.tar.gz) | `+0.47%` | **98.21%** | 5,301 | 3,351 | 1,950 | follower, following |
+| Dataset |  Count | bot | Human | Edge |
+| :--- | :---: | :---: | :---: | :---: |
+| [TwiBot-20](https://www.kaggle.com/datasets/marvinvanbo/twibot-20) |  8,178 `229,573` | 3632 `5273` | 4646 `6589` | following |
+| [TwiBot-22](https://botometer.osome.iu.edu/data/datasets/twibot-22/twibot-22.csv.gz) |  1m | 139,943 | 860,057 | following |
+| [Cresci-2015](https://botometer.osome.iu.edu/data/datasets/cresci-2015/cresci-2015.csv.tar.gz) |  5,301 | 3,351 | 1,950 | follower, following |
+
+<img width="898" height="274" alt="image" src="https://github.com/user-attachments/assets/e53e3108-b135-40a1-ab80-7062bf06b5ac" />
 
 
 ####  Parameters
