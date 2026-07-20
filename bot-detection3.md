@@ -78,11 +78,11 @@
 
 
 ####  Performance Improvement
-| Dataset | Improvement | Final Accuracy | labels |
+| Dataset | Improvement | Final Accuracy | labels | Count |
 | :--- | :---: | :---: | :---: |
-| **TwiBot-20** | `+1.86%` | **86.53%** | 0: 3632, 1: 4646 |
-| **TwiBot-22** | `+1.67%` | **81.33%** | |
-| **Cresci-2015** | `+0.47%` | **98.21%** | |
+| **TwiBot-20** | `+1.86%` | **86.53%** | 0: 3632, 1: 4646 | 8,178 |
+| **TwiBot-22** | `+1.67%` | **81.33%** | | |
+| **Cresci-2015** | `+0.47%` | **98.21%** | | |
 
 
 ####  Parameters
