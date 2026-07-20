@@ -3,7 +3,7 @@
 ### Step 1:  Feature Extraction
 - **Semantic Feature ( RoBERTa )** 
   - Bio / Description `profile.description`
-  - Tweet `tweet [comma seperator string list]`
+  - Tweet `tweet [string list]`
 - **Property Feature ( Z-score normalization and MLP )**
   - Numerical
     - Account age `profile.created_at`
@@ -15,27 +15,54 @@
     - Retweet count `not found in TwiBot-20 dataset and set by default 0`
   - Category
     - Verified status `profile.verified`
-    - Profile completeness
-    - Default profile image `profile.default_profile_image`
-    - Default profile `profile.default_profile`
-    - Geo Enabled `profile.geo_enabled`
-    - Protected `profile.protected`
-    - Contributors Enabled `profile.contributors_enabled`
-    - Translator `profile.is_translator`
-    - Translation Enabled `profile.is_translation_enabled`
-    - Background Tile `profile.profile_background_tile`
-    - Use Background Image `profile.profile_use_background_image`
-    - Extended Profile `profile.has_extended_profile`
-- **Community Feature ( DANMF )**
-  - Community Vector [0.8,0.1,0.05,0.05]
+      - مشخص می‌کند که حساب دارای نشان تأیید (تیک آبی) است یا خیر.
 
+    - Profile completeness
+      - میزان کامل بودن اطلاعات پروفایل کاربر را نشان می‌دهد (ویژگی مشتق‌شده و نه یک فیلد مستقیم توییتر).
+
+    - Default profile image `profile.default_profile_image`
+      - مشخص می‌کند که کاربر هنوز از تصویر پروفایل پیش‌فرض توییتر استفاده می‌کند یا خیر.
+
+    - Default profile `profile.default_profile`
+      - مشخص می‌کند که کاربر هنوز از قالب و ظاهر پیش‌فرض پروفایل توییتر استفاده می‌کند یا خیر.
+
+    - Geo Enabled `profile.geo_enabled`
+      - مشخص می‌کند که اشتراک‌گذاری موقعیت مکانی در توییت‌ها برای این حساب فعال است یا خیر.
+
+    - Protected `profile.protected`
+      - مشخص می‌کند که حساب خصوصی (Private) است و فقط دنبال‌کنندگان تأییدشده می‌توانند توییت‌های آن را مشاهده کنند.
+
+    - Contributors Enabled `profile.contributors_enabled`
+      - مشخص می‌کند که امکان انتشار توییت توسط چندین کاربر مجاز به نمایندگی از این حساب فعال بوده است (ویژگی قدیمی توییتر).
+
+    - Translator `profile.is_translator`
+      - مشخص می‌کند که حساب به‌عنوان مترجم رسمی توییتر ثبت شده است یا خیر (ویژگی قدیمی).
+
+    - Translation Enabled `profile.is_translation_enabled`
+      - مشخص می‌کند که قابلیت‌های ترجمه توییتر برای این حساب فعال است یا خیر.
+
+    - Background Tile `profile.profile_background_tile`
+      - مشخص می‌کند که تصویر پس‌زمینه پروفایل به‌صورت تکرارشونده (Tile) نمایش داده می‌شود یا خیر (ویژگی قدیمی).
+
+    - Use Background Image `profile.profile_use_background_image`
+      - مشخص می‌کند که از تصویر پس‌زمینه سفارشی پروفایل استفاده می‌شود یا خیر (ویژگی قدیمی).
+
+    - Extended Profile `profile.has_extended_profile`
+      - مشخص می‌کند که پروفایل دارای اطلاعات تکمیلی فراتر از اطلاعات پایه است یا خیر.
+- **Community Feature ( DANMF )** 
+  - Generate graph with `neighbor.following` and `neighbor.following`
+  - 128-dim Community Vector [0.8,0.1,0.05,0.05]
+      - why 128-dim
+         - Standard in Graph Embedding: The number 128 is the "sweet spot" in graph learning, preserving community structure complexity while preventing memory overflow or overfitting.
+         - DANMF Inner Mechanism (Latent Communities): In the DANMF algorithm, 128 represents the number of latent communities in the network, defining the degree of each user's belonging to               these clusters.
+         - Alignment with Attention Architecture: This 128-dimensional vector serves as a sufficient input for the linear layer to extract the best features, ultimately providing the                       structural features needed to build the model's final 160-dimensional vector.
+        
 -  `✅ Anti-Mimic Feature ( Z-score normalization and MLP )`
    -  Semantic Mimicry Features
-      -  Semantic Distance
-         -  Dsem​=1−cos(Si​,Shuman​)
-      - Text Diversity
-        - Vocabulary Size
-        - Unique word ratio
+      -  Semantic Distance `profile.description` , `tweet`
+      - Text Diversity `tweet`
+        - Vocabulary Size `کاربر چقدر دایره لغات غنی دارد؟`
+        - Unique word ratio `این کاربر چقدر کلماتش را تکرار می‌کند`
     - Behavioral Mimicry Features
       - Posting Interval Pattern
       - Activity Periodicity
