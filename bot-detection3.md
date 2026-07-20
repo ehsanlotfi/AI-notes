@@ -108,11 +108,11 @@
   * [BotRGCN Source Code](https://github.com/BunsenFeng/BotRGCN)
 
 ####  Datasets
-| Dataset | Improvement | Final Accuracy | labels | Count | Edge |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| [TwiBot-20](https://www.kaggle.com/datasets/marvinvanbo/twibot-20) | `+1.86%` | **86.53%** | 0: 3632, 1: 4646 | 8,178 | follower, following
-| [TwiBot-22](https://botometer.osome.iu.edu/data/datasets/twibot-22/twibot-22.csv.gz) | `+1.67%` | **81.33%** | | | |
-| [Cresci-2015](https://botometer.osome.iu.edu/data/datasets/cresci-2015/cresci-2015.csv.tar.gz) | `+0.47%` | **98.21%** | | | |
+| Dataset | Improvement | Final Accuracy | Count | bot | Human | Edge |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| [TwiBot-20](https://www.kaggle.com/datasets/marvinvanbo/twibot-20) | `+1.86%` | **86.53%** | 8,178 `229,573` | 3632 `5273` | 4646 `6589` | following |
+| [TwiBot-22](https://botometer.osome.iu.edu/data/datasets/twibot-22/twibot-22.csv.gz) | `+1.67%` | **81.33%** | 1m | 139,943 | 860,057 | following |
+| [Cresci-2015](https://botometer.osome.iu.edu/data/datasets/cresci-2015/cresci-2015.csv.tar.gz) | `+0.47%` | **98.21%** | 5,301 | 3,351 | 1,950 | follower, following |
 
 
 ####  Parameters
