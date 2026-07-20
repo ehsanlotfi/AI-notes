@@ -2,20 +2,30 @@
 
 ### Step 1:  Feature Extraction
 - **Semantic Feature ( RoBERTa )** 
-  - Bio / Description
-  - Tweet
+  - Bio / Description `profile.description`
+  - Tweet `tweet [comma seperator string list]`
 - **Property Feature ( Z-score normalization and MLP )**
   - Numerical
-    - Account age
-    - Followers count
-    - Following count
-    - Number of tweets
+    - Account age `profile.created_at`
+    - Followers count `profile.followers_count`
+    - Following count `profile.friends_count`
+    - Like count `profile.favourites_count`
+    - Tweet count `profile.statuses_count`
+    - Username length `profile.screen_name`
+    - Retweet count `not found in TwiBot-20 dataset and set by default 0`
   - Category
-    - Verified status
+    - Verified status `profile.verified`
     - Profile completeness
-    - Default profile image
-    - Geo Enabled
-    - Protected
+    - Default profile image `profile.default_profile_image`
+    - Default profile `profile.default_profile`
+    - Geo Enabled `profile.geo_enabled`
+    - Protected `profile.protected`
+    - Contributors Enabled `profile.contributors_enabled`
+    - Translator `profile.is_translator`
+    - Translation Enabled `profile.is_translation_enabled`
+    - Background Tile `profile.profile_background_tile`
+    - Use Background Image `profile.profile_use_background_image`
+    - Extended Profile `profile.has_extended_profile`
 - **Community Feature ( DANMF )**
   - Community Vector [0.8,0.1,0.05,0.05]
 
@@ -78,11 +88,11 @@
 
 
 ####  Performance Improvement
-| Dataset | Improvement | Final Accuracy | labels | Count |
-| :--- | :---: | :---: | :---: |
-| **TwiBot-20** | `+1.86%` | **86.53%** | 0: 3632, 1: 4646 | 8,178 |
-| **TwiBot-22** | `+1.67%` | **81.33%** | | |
-| **Cresci-2015** | `+0.47%` | **98.21%** | | |
+| Dataset | Improvement | Final Accuracy | labels | Count | Edge |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **TwiBot-20** | `+1.86%` | **86.53%** | 0: 3632, 1: 4646 | 8,178 | follower, following
+| **TwiBot-22** | `+1.67%` | **81.33%** | | | |
+| **Cresci-2015** | `+0.47%` | **98.21%** | | | |
 
 
 ####  Parameters
