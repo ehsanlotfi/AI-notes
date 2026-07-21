@@ -6,13 +6,19 @@ from collections import defaultdict
 # ============================================
 # تنظیم مسیر فایل‌ها
 # ============================================
-USERS_FILE = "users.csv"
-TWEETS_FILE = "tweets.csv"
-FOLLOWERS_FILE = "followers.csv"
-FRIENDS_FILE = "friends.csv"
-OUTPUT_FILE = "output.json"
+PREFIX_FILENAME = "E13.csv"
+USERS_FILE = PREFIX_FILENAME + "/users.csv"  # یا "users.xlsx"
+# USERS_FILE = PREFIX_FILENAME + "/users.xlsx"  # یا "users.xlsx"
+TWEETS_FILE = PREFIX_FILENAME + "/tweets.csv"  # یا "tweets.xlsx"
+# TWEETS_FILE = PREFIX_FILENAME + "/tweets.xlsx"  # یا "tweets.xlsx"
+FOLLOWERS_FILE = PREFIX_FILENAME + "/followers.csv"  # یا "followers.xlsx"
+# FOLLOWERS_FILE = PREFIX_FILENAME + "/followers.xlsx"  # یا "followers.xlsx"
+FRIENDS_FILE = PREFIX_FILENAME + "/friends.csv"  # یا "friends.xlsx"
+# FRIENDS_FILE = PREFIX_FILENAME + "/friends.xlsx"  # یا "friends.xlsx"
+OUTPUT_FILE = PREFIX_FILENAME + "/output.json"
+BOT_LABEL = "1"
 
-CHUNKSIZE = 50000   # تعداد ردیف در هر چانک
+CHUNKSIZE = 50000  # تعداد ردیف در هر چانک (بسته به RAM کم/زیاد کن)
 
 
 def detect_encoding(path):
@@ -71,7 +77,7 @@ print("📥 Loading tweets (chunked)...")
 tweets_by_user = defaultdict(list)
 
 for i, chunk in enumerate(load_chunks(TWEETS_FILE)):
-    print(f"   → Processing tweet chunk {i+1} ({len(chunk)} rows)...")
+    print(f"   → Processing tweet chunk {i + 1} ({len(chunk)} rows)...")
     for _, row in chunk.iterrows():
         uid = str(row['user_id'])
         tweets_by_user[uid].append(str(row['text']))
@@ -85,7 +91,7 @@ print("📥 Loading followers (chunked)...")
 followers_by_user = defaultdict(list)
 
 for i, chunk in enumerate(load_chunks(FOLLOWERS_FILE)):
-    print(f"   → Processing follower chunk {i+1} ({len(chunk)} rows)...")
+    print(f"   → Processing follower chunk {i + 1} ({len(chunk)} rows)...")
     for _, row in chunk.iterrows():
         target = str(row['target_id'])
         source = str(row['source_id'])
@@ -100,7 +106,7 @@ print("📥 Loading friends (chunked)...")
 following_by_user = defaultdict(list)
 
 for i, chunk in enumerate(load_chunks(FRIENDS_FILE)):
-    print(f"   → Processing friends chunk {i+1} ({len(chunk)} rows)...")
+    print(f"   → Processing friends chunk {i + 1} ({len(chunk)} rows)...")
     for _, row in chunk.iterrows():
         source = str(row['source_id'])
         target = str(row['target_id'])
@@ -116,7 +122,7 @@ result = []
 
 for _, row in users.iterrows():
     user_id = str(row['id'])
-    
+
     # --- ساخت بخش profile ---
     profile = {}
     for col in users.columns:
@@ -133,12 +139,12 @@ for _, row in users.iterrows():
                 profile[col] = "None "
         else:
             profile[col] = str(val) + " "
-    
+
     # --- توییت‌ها و همسایه‌ها ---
     user_tweets = tweets_by_user.get(user_id, [])
     user_following = [x + " " for x in following_by_user.get(user_id, [])]
     user_followers = [x + " " for x in followers_by_user.get(user_id, [])]
-    
+
     entry = {
         "ID": user_id + " ",
         "profile": profile,
@@ -148,7 +154,7 @@ for _, row in users.iterrows():
             "follower": user_followers
         },
         "domain": [],
-        "label": "0"
+        "label": BOT_LABEL
     }
     result.append(entry)
 
