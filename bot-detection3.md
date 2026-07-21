@@ -108,7 +108,7 @@
 | :--- | :---: | :---: | :---: | :---: |
 | [TwiBot-20](https://www.kaggle.com/datasets/marvinvanbo/twibot-20) |  8,178 `229,573` | 3632 `5273` | 4646 `6589` | following |
 | [TwiBot-22](https://botometer.osome.iu.edu/data/datasets/twibot-22/twibot-22.csv.gz) |  1m | 139,943 | 860,057 | following |
-| [Cresci-2015](https://botometer.osome.iu.edu/data/datasets/cresci-2015/cresci-2015.csv.tar.gz) |  5,301 | 3,351 | 1,950 | follower, following |
+| [Cresci-2015](https://botometer.osome.iu.edu/data/datasets/cresci-2015/cresci-2015.csv.tar.gz) human `TFP (The Fake Project), E13 (Election 2013), Bot INT (Intertwitter), FSF (Fastfollowerz), TWT (Twittertechnology) ` |  5,301 | 3,351 | 1,950 | follower, following |
 
 <img width="898" height="274" alt="image" src="https://github.com/user-attachments/assets/e53e3108-b135-40a1-ab80-7062bf06b5ac" />
 
