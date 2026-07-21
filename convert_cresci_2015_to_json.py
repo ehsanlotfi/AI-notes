@@ -7,19 +7,15 @@ from collections import defaultdict
 # تنظیم مسیر فایل‌ها
 # ============================================
 PREFIX_FILENAME = "E13.csv"
-USERS_FILE = PREFIX_FILENAME + "/users.csv"  # یا "users.xlsx"
-# USERS_FILE = PREFIX_FILENAME + "/users.xlsx"  # یا "users.xlsx"
-TWEETS_FILE = PREFIX_FILENAME + "/tweets.csv"  # یا "tweets.xlsx"
-# TWEETS_FILE = PREFIX_FILENAME + "/tweets.xlsx"  # یا "tweets.xlsx"
-FOLLOWERS_FILE = PREFIX_FILENAME + "/followers.csv"  # یا "followers.xlsx"
-# FOLLOWERS_FILE = PREFIX_FILENAME + "/followers.xlsx"  # یا "followers.xlsx"
-FRIENDS_FILE = PREFIX_FILENAME + "/friends.csv"  # یا "friends.xlsx"
-# FRIENDS_FILE = PREFIX_FILENAME + "/friends.xlsx"  # یا "friends.xlsx"
-OUTPUT_FILE = PREFIX_FILENAME + "/output.json"
+
 BOT_LABEL = "1"
+CHUNKSIZE = 50000
 
-CHUNKSIZE = 50000  # تعداد ردیف در هر چانک (بسته به RAM کم/زیاد کن)
-
+USERS_FILE = PREFIX_FILENAME + "/users.csv"
+TWEETS_FILE = PREFIX_FILENAME + "/tweets.csv"
+FOLLOWERS_FILE = PREFIX_FILENAME + "/followers.csv"
+FRIENDS_FILE = PREFIX_FILENAME + "/friends.csv"
+OUTPUT_FILE = PREFIX_FILENAME + "/output.json"
 
 def detect_encoding(path):
     """
