@@ -70,7 +70,7 @@
 
 ### Step 3:  Node Representation Learning
 - **❌ Two-layer RGCN**
-- `✅ Two-layer GraphSAGE`
+- `✅ Multi-layer GraphSAGE`
 
 ### step 4: Classification
   - **Softmax** -> Human / Bot
